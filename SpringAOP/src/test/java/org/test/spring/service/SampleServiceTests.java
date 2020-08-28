@@ -19,6 +19,8 @@ public class SampleServiceTests {
 	private SampleService service;
 	@Setter(onMethod_ = @Autowired)
 	private Sample2Service service2;
+	@Setter(onMethod_ = @Autowired)
+	private AnnotationAspectSampleService annoService;
 	
 	@Test
 	public void testClass() throws Exception {
@@ -28,5 +30,9 @@ public class SampleServiceTests {
 		log.info(service2.getClass().getName());
 		service.doAdd("1", "1");
 		service2.doMultiply("2", "2");
+		
+		log.info(System.lineSeparator());
+		log.info(annoService);
+		annoService.doProc("1");
 	}
 }

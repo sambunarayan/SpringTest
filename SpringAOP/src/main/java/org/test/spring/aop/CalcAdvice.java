@@ -1,6 +1,7 @@
 package org.test.spring.aop;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -25,5 +26,10 @@ public class CalcAdvice {
 		log.info("getTarget -> " + joinPoint.getTarget());
 		log.info("getThis -> " + joinPoint.getThis());
 		log.info("FIELD_GET -> " + joinPoint.FIELD_GET);
+	}
+	
+	@After("LogPointCuts.afterLogPointcut()")
+	public void afterCal() {
+		log.info("======= END =======");
 	}
 }
